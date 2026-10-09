@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # finder.sh <filesdir> <searchstr>
 filesdir=$1
 searchstr=$2
