@@ -99,6 +99,9 @@ mkdir -p ${OUTDIR}/rootfs/home/conf
 cp ${FINDER_APP_DIR}/../conf/username.txt ${OUTDIR}/rootfs/home/conf/
 cp ${FINDER_APP_DIR}/../conf/assignment.txt ${OUTDIR}/rootfs/home/conf/
 
-# TODO: Chown the root directory
+sudo chown -R root:root ${OUTDIR}/rootfs
 
-# TODO: Create initramfs.cpio.gz
+cd ${OUTDIR}/rootfs
+find . | cpio -H newc -ov --owner root:root > ${OUTDIR}/initramfs.cpio
+cd ${OUTDIR}
+gzip -f initramfs.cpio
